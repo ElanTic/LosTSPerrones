@@ -1,6 +1,6 @@
 import 'dart:io';
 
-class User {
+class Joven {
   String email;
 
   String nombre;
@@ -13,7 +13,7 @@ class User {
 
   String appIdentifier;
 
-  User(
+  Joven(
       {this.email = '',
       this.nombre = '',
       this.telefono = '',
@@ -23,8 +23,8 @@ class User {
 
   String fullName() => '$nombre $telefono';
 
-  factory User.fromJson(Map<String, dynamic> parsedJson) {
-    return User(
+  factory Joven.fromJson(Map<String, dynamic> parsedJson) {
+    return Joven(
         email: parsedJson['email'] ?? '',
         nombre: parsedJson['nombre'] ?? '',
         telefono: parsedJson['telefono'] ?? '',

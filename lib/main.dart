@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:itemtrackers/Views/Inicio.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const Inicio());
 }
 
 class MyApp extends StatelessWidget {
