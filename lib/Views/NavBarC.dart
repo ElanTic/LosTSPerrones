@@ -11,7 +11,7 @@ class NavBarC extends StatefulWidget {
 
 class _NavBarCState extends State<NavBarC> {
   PageController _pageController = PageController();
-  List<Widget> __screens = [Pag(), Pag2(), Pag()];
+  List<Widget> __screens = [Pag(), Pag2(), Pag(), Pag2()];
 
   void _onPageChanged(int index) {
     setState(() {
@@ -40,6 +40,7 @@ class _NavBarCState extends State<NavBarC> {
         physics: NeverScrollableScrollPhysics(),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -53,12 +54,10 @@ class _NavBarCState extends State<NavBarC> {
             icon: Icon(Icons.post_add),
             label: 'Publicaciones',
           ),
-          /* 
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: 'Options',
           ),
-          */
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.amber[800],
