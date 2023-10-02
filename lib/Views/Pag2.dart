@@ -12,7 +12,7 @@ class _Pag2State extends State<Pag2> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("otro"),
+        title: Text("Pagina 2"),
       ),
     );
   }
