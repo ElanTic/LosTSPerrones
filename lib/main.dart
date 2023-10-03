@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:itemtrackers/Views/Inicio.dart';
+import 'package:itemtrackers/Views/login.dart';
 
-void main() {
-  runApp(const Inicio());
-}
+void main() => runApp(new LoginScreen());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
