@@ -12,7 +12,7 @@ class _PagState extends State<Pag> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("plantilla paginas"),
+        title: Text("Inicio"),
       ),
     );
   }
