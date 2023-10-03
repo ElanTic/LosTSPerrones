@@ -15,7 +15,7 @@ class _LoginStateScreen extends State<LoginScreen> {
     return new MaterialApp(
       home: new Scaffold(
         appBar: AppBar(
-          title: Text('Itemtrackers'),
+          title: Text('Inicio de Sesión'),
           backgroundColor: Colors.blueAccent,
           elevation: 0,
         ),
@@ -83,7 +83,7 @@ class _LoginStateScreen extends State<LoginScreen> {
                         padding: EdgeInsets.all(16.0),
                         child: TextButton(
                             onPressed: () {
-                              print('Olvide Contra');
+                              print('Olvide Contraseña');
                             },
                             child: Text('Olvidé mi Contraseña')),
                       ),
