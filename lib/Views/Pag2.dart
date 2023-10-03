@@ -48,6 +48,13 @@ class _Pag2State extends State<Pag2> {
             ),
             ElevatedButton(
               onPressed: () {},
+              child: Text('Añadir ubicacion de perdida'),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 10),
+            ),
+            ElevatedButton(
+              onPressed: () {},
               child: Text('Añadir publicación'),
             ),
           ],
