@@ -41,7 +41,7 @@ class _OpcionesState extends State<Opciones> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 FloatingActionButton.extended(
-                  label: Text('Mi Cuenta'), // <-- Text
+                  label: Text('Mis datos'), // <-- Text
                   backgroundColor: Colors.black,
                   icon: Icon(
                     // <-- Icon

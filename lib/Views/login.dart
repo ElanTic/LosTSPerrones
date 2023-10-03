@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'inicio.dart';
+import 'Inicio.dart';
 
 String username = " ";
 String password = " ";
