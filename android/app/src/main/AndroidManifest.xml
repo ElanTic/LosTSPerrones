@@ -3,6 +3,9 @@
         android:label="itemtrackers"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyAg9zP-8A9y-byDa9SuzzFexkr8226omI0"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -15,12 +18,12 @@
                  the Android process has started. This theme is visible to the user
                  while the Flutter UI initializes. After that, this theme continues
                  to determine the Window background behind the Flutter UI. -->
+            
             <meta-data
               android:name="io.flutter.embedding.android.NormalTheme"
               android:resource="@style/NormalTheme"
               />
-              <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="AIzaSyBJdf1MM415xL4lRvb3XsnWERiL1qA4O_A"/>
+               
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
