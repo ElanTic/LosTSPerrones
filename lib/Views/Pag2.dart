@@ -65,8 +65,11 @@ class _Pag2State extends State<Pag2> {
 
   Future getImage() async {
     // ignore: deprecated_member_use
-    final returnImage =
-        await ImagePicker().pickImage(source: ImageSource.gallery);
+    final returnImage = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+      maxWidth: 800,
+      maxHeight: 800,
+    );
 
     setState(() {
       if (returnImage != null) {

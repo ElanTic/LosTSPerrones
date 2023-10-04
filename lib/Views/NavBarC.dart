@@ -12,7 +12,7 @@ class NavBarC extends StatefulWidget {
 
 class _NavBarCState extends State<NavBarC> {
   PageController _pageController = PageController();
-  List<Widget> __screens = [Pag(), Pag2(), Mapa(), Pag2()];
+  List<Widget> __screens = [Mapa(), Pag2(), Pag(), Pag2()];
 
   void _onPageChanged(int index) {
     setState(() {

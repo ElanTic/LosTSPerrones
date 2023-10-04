@@ -32,21 +32,21 @@ class _LoginStateScreen extends State<LoginScreen> {
                       username = userNameTF;
                     },
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(), hintText: 'Username'),
+                        border: OutlineInputBorder(), hintText: 'Usuario'),
                   ),
                   TextField(
                     onChanged: (passwordTF) {
                       password = passwordTF;
                     },
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(), hintText: 'Password'),
+                        border: OutlineInputBorder(), hintText: 'Contraseña'),
                   ),
                   Builder(
                       builder: (context) => ElevatedButton(
                           onPressed: () {
                             if (username != " " && password != " ") {
-                              print("Username: " + username);
-                              print("Password: " + password);
+                              print("Usuario: " + username);
+                              print("Contraseña: " + password);
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
