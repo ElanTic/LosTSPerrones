@@ -1,4 +1,3 @@
-//import de materialapp
 import 'package:flutter/material.dart';
 import 'package:itemtrackers/Views/Pag2.dart';
 
