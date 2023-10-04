@@ -18,7 +18,7 @@ class _FormularioState extends State<Formulario> {
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Form(
-            child: Column(
+            child: ListView(
               children: [
                 TextFormField(
                   keyboardType: TextInputType.text,
