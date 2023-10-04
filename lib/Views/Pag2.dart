@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
+import 'package:itemtrackers/Views/Formulario.dart';
+
 class Pag2 extends StatefulWidget {
   const Pag2({super.key});
 
@@ -22,7 +24,7 @@ class _Pag2State extends State<Pag2> {
         padding: EdgeInsets.all(70),
         child: Column(
           children: [
-            Text("Deescripción de la publicación"),
+            Text("Descripción de la publicación"),
             TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
@@ -42,6 +44,16 @@ class _Pag2State extends State<Pag2> {
                 getImage();
               },
               child: Text('Subir imagen'),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 10),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Formulario()));
+              },
+              child: Text('Formulario de objeto perdido'),
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10),
