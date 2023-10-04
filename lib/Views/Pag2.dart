@@ -35,7 +35,7 @@ class _Pag2State extends State<Pag2> {
             const SizedBox(height: 30),
             returnImage != null
                 ? Image.file(returnImage!)
-                : const Text("Selecciona una imagen"),
+                : const Text("Agrega una imagen"),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10),
             ),
