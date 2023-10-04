@@ -20,6 +20,7 @@ class _Pag2State extends State<Pag2> {
         title: Text("Añadir publicación"),
       ),
       //creamos un boton para añadir una publicacion, descripcion, subir una imagen de modo local o de la camara
+
       body: Container(
         padding: EdgeInsets.all(70),
         child: Column(
@@ -79,8 +80,8 @@ class _Pag2State extends State<Pag2> {
     // ignore: deprecated_member_use
     final returnImage = await ImagePicker().pickImage(
       source: ImageSource.gallery,
-      maxWidth: 800,
-      maxHeight: 800,
+      maxWidth: 400,
+      maxHeight: 400,
     );
 
     setState(() {

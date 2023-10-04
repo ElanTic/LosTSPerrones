@@ -1,7 +1,6 @@
 //import de materialapp
 import 'package:flutter/material.dart';
-import 'package:itemtrackers/models/FichaObjetoP.dart';
-import 'package:itemtrackers/models/Joven.dart';
+import 'package:itemtrackers/Views/Pag2.dart';
 
 class Formulario extends StatefulWidget {
   const Formulario({super.key});
@@ -16,7 +15,7 @@ class _FormularioState extends State<Formulario> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text("Fromulario")),
+        appBar: AppBar(title: const Text("Formulario")),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Form(
@@ -47,7 +46,10 @@ class _FormularioState extends State<Formulario> {
                   ),
                 ),
                 MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Pag2()));
+                  },
                   child: const Text('Guardar'),
                 )
               ],
