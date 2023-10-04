@@ -23,7 +23,7 @@ class _Pag2State extends State<Pag2> {
 
       body: Container(
         padding: EdgeInsets.all(70),
-        child: Column(
+        child: ListView(
           children: [
             Text("Descripción de la publicación"),
             TextField(
@@ -54,21 +54,21 @@ class _Pag2State extends State<Pag2> {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => Formulario()));
               },
-              child: Text('Formulario de objeto perdido'),
+              child: Text('Describe tu objeto perdido'),
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10),
             ),
             ElevatedButton(
               onPressed: () {},
-              child: Text('Añadir ubicacion de perdida'),
+              child: Text('Añade una ubicacion de perdida'),
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10),
             ),
             ElevatedButton(
               onPressed: () {},
-              child: Text('Añadir publicación'),
+              child: Text('Subir publicación'),
             ),
           ],
         ),
@@ -82,6 +82,7 @@ class _Pag2State extends State<Pag2> {
       source: ImageSource.gallery,
       maxWidth: 400,
       maxHeight: 400,
+      imageQuality: 2,
     );
 
     setState(() {
