@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Inicio.dart';
+import 'registro.dart';
 
 String username = " ";
 String password = " ";
@@ -76,6 +77,10 @@ class _LoginStateScreen extends State<LoginScreen> {
                         child: TextButton(
                             onPressed: () {
                               print('Registrarse');
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Registro()));
                             },
                             child: Text('Registrarse')),
                       ),
