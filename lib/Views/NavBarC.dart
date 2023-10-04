@@ -62,7 +62,7 @@ class _NavBarCState extends State<NavBarC> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Color.fromARGB(255, 2, 2, 2),
         onTap: _onItemTapped,
       ),
     );

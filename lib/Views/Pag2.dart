@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
+import 'package:itemtrackers/Views/Formulario.dart';
+
 class Pag2 extends StatefulWidget {
   const Pag2({super.key});
 
@@ -18,11 +20,12 @@ class _Pag2State extends State<Pag2> {
         title: Text("Añadir publicación"),
       ),
       //creamos un boton para añadir una publicacion, descripcion, subir una imagen de modo local o de la camara
+
       body: Container(
         padding: EdgeInsets.all(70),
         child: Column(
           children: [
-            Text("Deescripción de la publicación"),
+            Text("Descripción de la publicación"),
             TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
@@ -42,6 +45,16 @@ class _Pag2State extends State<Pag2> {
                 getImage();
               },
               child: Text('Subir imagen'),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 10),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Formulario()));
+              },
+              child: Text('Formulario de objeto perdido'),
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10),
@@ -67,8 +80,8 @@ class _Pag2State extends State<Pag2> {
     // ignore: deprecated_member_use
     final returnImage = await ImagePicker().pickImage(
       source: ImageSource.gallery,
-      maxWidth: 800,
-      maxHeight: 800,
+      maxWidth: 400,
+      maxHeight: 400,
     );
 
     setState(() {
