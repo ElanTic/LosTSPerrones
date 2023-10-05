@@ -7,7 +7,7 @@ class Joven {
 
   String telefono;
 
-  String userID;
+  //String userID;
 
   String infoContacto;
 
@@ -17,7 +17,7 @@ class Joven {
       {this.email = '',
       this.nombre = '',
       this.telefono = '',
-      this.userID = '',
+      //this.userID = '',
       this.infoContacto = ''})
       : appIdentifier = 'Flutter Login Screen ${Platform.operatingSystem}';
 
@@ -28,7 +28,7 @@ class Joven {
         email: parsedJson['email'] ?? '',
         nombre: parsedJson['nombre'] ?? '',
         telefono: parsedJson['telefono'] ?? '',
-        userID: parsedJson['id'] ?? parsedJson['userID'] ?? '',
+        //userID: parsedJson['id'] ?? parsedJson['userID'] ?? '',
         infoContacto: parsedJson['infoContacto'] ?? '');
   }
 
@@ -37,7 +37,7 @@ class Joven {
       'email': email,
       'nombre': nombre,
       'telefono': telefono,
-      'id': userID,
+      //'id': userID,
       'infoContacto': infoContacto,
       'appIdentifier': appIdentifier
     };
