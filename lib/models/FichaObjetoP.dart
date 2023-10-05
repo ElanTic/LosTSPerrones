@@ -4,22 +4,22 @@ import 'package:itemtrackers/models/Pertenencia.dart';
 
 class FichaObjetoP {
   int id;
-  DateTime fecha;
+  DateTime dateFound;
+  DateTime dateLost;
   String ubicacion;
-  //Pertenencia pertenencia;
-  //Joven propietario;
-  bool status;
-  int owner_id;
-  int id_pert;
+  bool isFound; // true if found, false if lost
+  String ownerId; // foreign key referencing joven_0
+  int pertenenciaId; // foreign key referencing pertenencia
 
   FichaObjetoP({
     required this.id,
-    required this.fecha,
+    required this.dateLost,
+    required this.dateFound, //no es cierto
     this.ubicacion = '',
     //required this.pertenencia,
     //required this.propietario,
-    required this.status,
-    required this.owner_id,
-    required this.id_pert,
+    required this.isFound,
+    required this.ownerId,
+    required this.pertenenciaId,
   });
 }
