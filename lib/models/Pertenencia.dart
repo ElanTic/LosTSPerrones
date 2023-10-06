@@ -4,7 +4,7 @@ import 'package:itemtrackers/Views/Info.dart';
 
 class Pertenencia extends StatefulWidget {
   int id;
-  int dueno;
+  String dueno;
   String nombre;
   String categoria;
   String marca;
