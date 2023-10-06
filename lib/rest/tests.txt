@@ -32,3 +32,38 @@
     }).catchError((error) {
       print('Error fetching FichaObjetoP: $error');
     });
+
+
+    super.initState();
+    RDS_joven rdsj = RDS_joven();
+
+    futureJoven = rdsj.getJoven("Jane Doe");
+
+    RDS_Publicacion rdsp = RDS_Publicacion();
+
+    //ficha con id
+    late Future<FichaObjetoP> ficha = rdsp.getFichaObjetoP('1');
+    ficha.then((fichaObjeto) {
+      print('Attribute 1: ${fichaObjeto.ownerId}');
+      print('voltea es esto');
+    }).catchError((error) {
+      print('Error fetching FichaObjetoP: $error');
+    });
+    //todas las fichas
+    late Future<List<FichaObjetoP>> fichas = rdsp.getAll();
+    fichas.then((listOfFichas) {
+      for (var fichaObjeto in listOfFichas) {
+        // plantilla(fichaObjeto)
+      }
+    }).catchError((error) {
+      print('Error fetching FichaObjetoP: $error');
+    });
+
+plantill(FichaObjetoP ){
+  matenme
+}
+
+    RDS_Publicacion rdsp = RDS_Publicacion();
+    FichaObjetoP ficha = FichaObjetoP(
+        id: 0, ubicacion: 'no recuerdo', ownerId: 'Jane Doe', pertenenciaId: 5);
+    rdsp.postFichaObjetoP(ficha);

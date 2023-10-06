@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:itemtrackers/Views/Opciones.dart';
 import 'package:itemtrackers/Views/Pag.dart';
 import 'package:itemtrackers/Views/Pag2.dart';
+import 'package:itemtrackers/Views/Posts.dart';
 import 'package:itemtrackers/Views/mapa.dart';
 
 class NavBarC extends StatefulWidget {
@@ -13,7 +14,7 @@ class NavBarC extends StatefulWidget {
 
 class _NavBarCState extends State<NavBarC> {
   PageController _pageController = PageController();
-  List<Widget> __screens = [Mapa(), Pag2(), Pag(), Opciones()];
+  List<Widget> __screens = [Mapa(), Pag2(), Pag(), Posts()];
 
   void _onPageChanged(int index) {
     setState(() {
