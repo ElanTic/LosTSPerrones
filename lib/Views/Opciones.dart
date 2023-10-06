@@ -1,5 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:itemtrackers/Views/Posts.dart';
+import 'package:itemtrackers/Views/Formulario.dart';
+import 'package:itemtrackers/Views/Objetos.dart';
+import 'package:itemtrackers/models/Pertenencia.dart';
+import 'package:itemtrackers/rest/RDS_pertenencia.dart';
 
 class Opciones extends StatefulWidget {
   const Opciones({Key? key}) : super(key: key);
@@ -10,6 +14,33 @@ class Opciones extends StatefulWidget {
 
 class _OpcionesState extends State<Opciones> {
   //late HomePageModel _model;
+
+  @override
+  void initState() {
+    super.initState();
+
+    RDS_pertenencia rdso = RDS_pertenencia();
+
+    //ficha con id
+    late Future<Pertenencia> obj = rdso.getPertenencia('1');
+    obj.then((objeto) {
+      print('Attribute 1: ${objeto.dueno}');
+      print('voltea es esto');
+    }).catchError((error) {
+      print('Error fetching FichaObjetoP: $error');
+    });
+    //todas las fichas
+    late Future<List<Pertenencia>> objetos = rdso.getAll();
+    objetos.then((listOfobj) {
+      for (var fichaObjeto in listOfobj) {
+        print('Attribute 1: ${fichaObjeto.color}');
+        print('Attribute 2: ${fichaObjeto.marca}');
+        // Add more print statements for other attributes as needed
+      }
+    }).catchError((error) {
+      print('Error fetching FichaObjetoP: $error');
+    });
+  }
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -70,8 +101,10 @@ class _OpcionesState extends State<Opciones> {
                       size: 60.0,
                     ),
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Posts()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Formulario()));
                     }),
               ],
             ),

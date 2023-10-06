@@ -6,41 +6,39 @@ import 'package:itemtrackers/models/Joven.dart';
 import 'package:itemtrackers/rest/RDS_Publicacion.dart';
 import 'package:itemtrackers/rest/RDS_joven.dart';
 import 'package:itemtrackers/models/Pertenencia.dart';
+import 'package:itemtrackers/rest/RDS_pertenencia.dart';
 
-class Pag extends StatefulWidget {
-  const Pag({super.key});
+class Objetos extends StatefulWidget {
+  const Objetos({super.key});
 
   @override
-  State<Pag> createState() => _PagState();
+  State<Objetos> createState() => _ObjetosState();
 }
 
-class _PagState extends State<Pag> {
+class _ObjetosState extends State<Objetos> {
   late Future<Joven> futureJoven;
   List<Pertenencia> lista = [];
 
   @override
   void initState() {
     super.initState();
-    RDS_joven rdsj = RDS_joven();
 
-    futureJoven = rdsj.getJoven("Jane Doe");
-
-    RDS_Publicacion rdsp = RDS_Publicacion();
+    RDS_pertenencia rdso = RDS_pertenencia();
 
     //ficha con id
-    late Future<FichaObjetoP> ficha = rdsp.getFichaObjetoP('1');
-    ficha.then((fichaObjeto) {
-      print('Attribute 1: ${fichaObjeto.ownerId}');
+    late Future<Pertenencia> obj = rdso.getPertenencia('1');
+    obj.then((objeto) {
+      print('Attribute 1: ${objeto.dueno}');
       print('voltea es esto');
     }).catchError((error) {
       print('Error fetching FichaObjetoP: $error');
     });
     //todas las fichas
-    late Future<List<FichaObjetoP>> fichas = rdsp.getAll();
-    fichas.then((listOfFichas) {
-      for (var fichaObjeto in listOfFichas) {
-        print('Attribute 1: ${fichaObjeto.ubicacion}');
-        print('Attribute 2: ${fichaObjeto.ownerId}');
+    late Future<List<Pertenencia>> objetos = rdso.getAll();
+    objetos.then((listOfobj) {
+      for (var fichaObjeto in listOfobj) {
+        print('Attribute 1: ${fichaObjeto.color}');
+        print('Attribute 2: ${fichaObjeto.marca}');
         // Add more print statements for other attributes as needed
       }
     }).catchError((error) {
