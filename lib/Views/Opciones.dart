@@ -2,7 +2,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:itemtrackers/Views/Formulario.dart';
 import 'package:itemtrackers/Views/Objetos.dart';
+import 'package:itemtrackers/models/FichaObjetoP.dart';
 import 'package:itemtrackers/models/Pertenencia.dart';
+import 'package:itemtrackers/rest/RDS_Publicacion.dart';
 import 'package:itemtrackers/rest/RDS_pertenencia.dart';
 
 class Opciones extends StatefulWidget {
@@ -19,27 +21,10 @@ class _OpcionesState extends State<Opciones> {
   void initState() {
     super.initState();
 
-    RDS_pertenencia rdso = RDS_pertenencia();
-
-    //ficha con id
-    late Future<Pertenencia> obj = rdso.getPertenencia('1');
-    obj.then((objeto) {
-      print('Attribute 1: ${objeto.dueno}');
-      print('voltea es esto');
-    }).catchError((error) {
-      print('Error fetching FichaObjetoP: $error');
-    });
-    //todas las fichas
-    late Future<List<Pertenencia>> objetos = rdso.getAll();
-    objetos.then((listOfobj) {
-      for (var fichaObjeto in listOfobj) {
-        print('Attribute 1: ${fichaObjeto.color}');
-        print('Attribute 2: ${fichaObjeto.marca}');
-        // Add more print statements for other attributes as needed
-      }
-    }).catchError((error) {
-      print('Error fetching FichaObjetoP: $error');
-    });
+    RDS_Publicacion rdsp = RDS_Publicacion();
+    FichaObjetoP ficha = FichaObjetoP(
+        id: 0, ubicacion: 'no recuerdo', ownerId: 'Jane Doe', pertenenciaId: 5);
+    rdsp.postFichaObjetoP(ficha);
   }
 
   final scaffoldKey = GlobalKey<ScaffoldState>();

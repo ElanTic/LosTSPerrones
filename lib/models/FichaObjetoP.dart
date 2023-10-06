@@ -38,10 +38,10 @@ class FichaObjetoP {
   Map<String, dynamic> toJson() {
     return {
       'id': id,
-      //'date_found': dateFound?.toIso8601String(),
-      //'date_lost': dateLost?.toIso8601String(),
+      'date_found': "2023-08-30T18:00:00",
+      'date_lost': "2023-08-30T18:00:00",
       'ubicacion': ubicacion,
-      //'is_found': isFound,
+      'is_found': false,
       'owner_id': ownerId,
       'pertenencia_id': pertenenciaId,
     };
