@@ -1,45 +1,33 @@
 import 'dart:io';
 
 class Joven {
-  String email;
+  String nombre; // nombre
+  String? email; // email
+  String? telefono; // telefono
+  String? infoContacto; // contacto
 
-  String nombre;
+  Joven({
+    required this.nombre,
+    this.email,
+    this.telefono,
+    this.infoContacto,
+  });
 
-  String telefono;
-
-  //String userID;
-
-  String infoContacto;
-
-  String appIdentifier;
-
-  Joven(
-      {this.email = '',
-      this.nombre = '',
-      this.telefono = '',
-      //this.userID = '',
-      this.infoContacto = ''})
-      : appIdentifier = 'Flutter Login Screen ${Platform.operatingSystem}';
-
-  String fullName() => '$nombre $telefono';
-
-  factory Joven.fromJson(Map<String, dynamic> parsedJson) {
+  factory Joven.fromJson(Map<String, dynamic> json) {
     return Joven(
-        email: parsedJson['email'] ?? '',
-        nombre: parsedJson['nombre'] ?? '',
-        telefono: parsedJson['telefono'] ?? '',
-        //userID: parsedJson['id'] ?? parsedJson['userID'] ?? '',
-        infoContacto: parsedJson['infoContacto'] ?? '');
+      nombre: json['nombre'],
+      email: json['email'],
+      telefono: json['telefono'],
+      infoContacto: json['contacto'],
+    );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'email': email,
       'nombre': nombre,
+      'email': email,
       'telefono': telefono,
-      //'id': userID,
-      'infoContacto': infoContacto,
-      'appIdentifier': appIdentifier
+      'contacto': infoContacto,
     };
   }
 }
