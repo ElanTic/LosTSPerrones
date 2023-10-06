@@ -2,24 +2,50 @@ import 'package:flutter/material.dart';
 import 'package:itemtrackers/models/Joven.dart';
 import 'package:itemtrackers/models/Pertenencia.dart';
 
+import 'dart:convert';
+
 class FichaObjetoP {
   int id;
-  DateTime dateFound;
-  DateTime dateLost;
-  String ubicacion;
-  bool isFound; // true if found, false if lost
-  String ownerId; // foreign key referencing joven_0
-  int pertenenciaId; // foreign key referencing pertenencia
+  DateTime? dateFound; // date_found
+  DateTime dateLost; // date_lost
+  String? ubicacion;
+  bool isFound; // is_found
+  String ownerId; // owner_id
+  int pertenenciaId; //pertenencia_id
 
   FichaObjetoP({
     required this.id,
+    this.dateFound,
     required this.dateLost,
-    required this.dateFound, //no es cierto
-    this.ubicacion = '',
-    //required this.pertenencia,
-    //required this.propietario,
+    this.ubicacion,
     required this.isFound,
     required this.ownerId,
     required this.pertenenciaId,
   });
+
+  factory FichaObjetoP.fromJson(Map<String, dynamic> json) {
+    return FichaObjetoP(
+      id: json['id'],
+      dateFound: json['date_found'] != null
+          ? DateTime.parse(json['date_found'])
+          : null,
+      dateLost: DateTime.parse(json['date_lost']),
+      ubicacion: json['ubicacion'],
+      isFound: json['is_found'],
+      ownerId: json['owner_id'],
+      pertenenciaId: json['pertenencia_id'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'date_found': dateFound?.toIso8601String(),
+      'date_lost': dateLost.toIso8601String(),
+      'ubicacion': ubicacion,
+      'is_found': isFound,
+      'owner_id': ownerId,
+      'pertenencia_id': pertenenciaId,
+    };
+  }
 }
