@@ -22,10 +22,10 @@ class _MyAppState extends State<Mapa> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Inicio'),
-          backgroundColor: Colors.green[700],
         ),
         body: GoogleMap(
           onMapCreated: _onMapCreated,

@@ -10,6 +10,7 @@ class Inicio extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       home: NavBarC(),
+      debugShowCheckedModeBanner: false,
       //implementar mapa en el home
     );
   }

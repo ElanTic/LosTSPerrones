@@ -14,6 +14,7 @@ class _LoginStateScreen extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: new Scaffold(
         appBar: AppBar(
           title: Text('Inicio de Sesión'),
