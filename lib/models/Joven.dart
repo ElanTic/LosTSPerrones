@@ -15,10 +15,10 @@ class Joven {
 
   factory Joven.fromJson(Map<String, dynamic> json) {
     return Joven(
-      nombre: json['nombre'],
-      email: json['email'],
-      telefono: json['telefono'],
-      infoContacto: json['contacto'],
+      nombre: json['Joven']['nombre'],
+      email: json['Joven']['email'],
+      telefono: json['Joven']['telefono'],
+      infoContacto: json['Joven']['contacto'],
     );
   }
 
