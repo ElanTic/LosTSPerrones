@@ -11,7 +11,6 @@ class RDS_joven {
   Future<Joven> getJoven(String name) async {
     try {
       String url = ApiConfig.host + _joven + '/' + name;
-      print(url);
 
       final response = await http.get(Uri.parse(url));
 

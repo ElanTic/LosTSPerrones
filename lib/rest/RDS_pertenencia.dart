@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ffi';
 import 'package:http/http.dart' as http;
 
 import 'package:itemtrackers/models/Pertenencia.dart';
@@ -37,6 +38,32 @@ class RDS_pertenencia {
       } else {
         print('Request failed with status: ${response.statusCode}');
         throw Exception('Failed to load Pertenencias');
+      }
+    } catch (error) {
+      print('Error: $error');
+      throw error;
+    }
+  }
+
+  Future<bool> postPertenencia(Pertenencia pertenencia) async {
+    try {
+      String url = ApiConfig.host + _pertenencia;
+
+      final response = await http.post(
+        Uri.parse(url),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: jsonEncode(pertenencia.toJson()),
+      );
+
+      if (response.statusCode == 200) {
+        print('bien');
+        return true;
+        //return Pertenencia.fromJson(jsonDecode(response.body));
+      } else {
+        print('Request failed with status: ${response.statusCode}');
+        throw Exception('Failed to post Pertenencia');
       }
     } catch (error) {
       print('Error: $error');

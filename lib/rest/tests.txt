@@ -1,0 +1,34 @@
+
+    RDS_pertenencia rdso = RDS_pertenencia();
+    
+    Pertenencia pertenenciaToPost = Pertenencia(
+      id: 0, // Provide a unique ID
+      dueno: 'John Doe',
+      nombre: 'Laptop',
+      categoria: 'Electronics',
+      marca: 'XYZ',
+      modelo: '123',
+      color: 'Silver',
+      descripcion: 'A high-performance laptop',
+      foto: 'laptop.jpg', // Assuming this is a file name or URL
+    );
+    rdso.postPertenencia(pertenenciaToPost);
+    //ficha con id
+    late Future<Pertenencia> obj = rdso.getPertenencia('1');
+    obj.then((objeto) {
+      print('Attribute 1: ${objeto.dueno}');
+      print('voltea es esto');
+    }).catchError((error) {
+      print('Error fetching FichaObjetoP: $error');
+    });
+    //todas las fichas
+    late Future<List<Pertenencia>> objetos = rdso.getAll();
+    objetos.then((listOfobj) {
+      for (var fichaObjeto in listOfobj) {
+        print('Attribute 1: ${fichaObjeto.color}');
+        print('Attribute 2: ${fichaObjeto.marca}');
+        // Add more print statements for other attributes as needed
+      }
+    }).catchError((error) {
+      print('Error fetching FichaObjetoP: $error');
+    });
