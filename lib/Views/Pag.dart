@@ -2,6 +2,7 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:itemtrackers/models/Joven.dart';
+import 'package:itemtrackers/rest/RDS_Publicacion.dart';
 import 'package:itemtrackers/rest/RDS_joven.dart';
 import 'package:itemtrackers/models/Pertenencia.dart';
 

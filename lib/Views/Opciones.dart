@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:itemtrackers/Views/Posts.dart';
 
 class Opciones extends StatefulWidget {
   const Opciones({Key? key}) : super(key: key);
@@ -61,15 +62,17 @@ class _OpcionesState extends State<Opciones> {
                   onPressed: () {},
                 ),
                 FloatingActionButton.extended(
-                  label: Text('Mis publicaciones'), // <-- Text
-                  backgroundColor: Colors.black,
-                  icon: Icon(
-                    // <-- Icon
-                    Icons.description,
-                    size: 60.0,
-                  ),
-                  onPressed: () {},
-                ),
+                    label: Text('Mis publicaciones'), // <-- Text
+                    backgroundColor: Colors.black,
+                    icon: Icon(
+                      // <-- Icon
+                      Icons.description,
+                      size: 60.0,
+                    ),
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Posts()));
+                    }),
               ],
             ),
           ),
