@@ -53,24 +53,40 @@ class _PagState extends State<Pag> {
     lista = [
       Pertenencia(
           id: 0,
-          dueno: '',
-          nombre: 'algo',
-          color: 'si',
-          marca: 'si',
-          modelo: 'si',
-          descripcion: 'una cosa qeu se me perdio jaja',
+          dueno: 'Carlos Villareal',
+          nombre: 'Reloj',
+          color: 'Plateado',
+          marca: 'Rolex',
+          categoria: 'Joyeria',
+          modelo: 'Explorer',
+          descripcion:
+              'La ultima vez que recuerdo verlo visto fue en el comedor del campus uaz siglo XXI',
           foto:
-              'https://static.wikia.nocookie.net/sanicman/images/d/d3/Ceyr7zdbxw821.png/revision/latest?cb=20200618024705'),
+              'https://emwa.com.mx/wp-content/uploads/2023/05/m124270-0001_collection_upright_landscape.jpg'),
       Pertenencia(
-          id: 0,
-          dueno: '',
-          nombre: 'otra cosa',
-          color: 'no',
-          marca: 'ola',
-          modelo: 'adiso',
-          descripcion: 'otra casa que se ne perdio por ai jijija',
+          id: 1,
+          dueno: 'Gerardo Rodriguez',
+          nombre: 'Laptop',
+          color: 'Blanco',
+          marca: 'HP',
+          categoria: 'Electronicos',
+          modelo: 'Pavillon',
+          descripcion:
+              'Se quedo en una mochila dentro del cafe acropolis pero cuando regrese por ella ya no la vi',
           foto:
-              'https://pm1.aminoapps.com/7088/14d09e999300a7440c0ce49b4d62873e22f10477r1-546-439v2_hq.jpg'),
+              'https://i5.walmartimages.com.mx/mg/gm/3pp/asr/4178a577-a23b-4735-b245-c78f72f46bf2.fb9b637239bc097ef06b0bf93c9b7c3a.png?odnHeight=612&odnWidth=612&odnBg=FFFFFF'),
+      Pertenencia(
+          id: 2,
+          dueno: 'Natanael Perez',
+          nombre: 'Mochila',
+          color: 'Negro',
+          marca: 'Nike',
+          categoria: 'Mochilas',
+          modelo: 'Casual',
+          descripcion:
+              'Fue llevada al incufidez y cuando se regreso ya no se encontro',
+          foto:
+              'https://http2.mlstatic.com/D_NQ_NP_684125-MLU70092217848_062023-O.webp'),
     ];
 
     return Scaffold(
