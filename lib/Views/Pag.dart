@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:itemtrackers/models/FichaObjetoP.dart';
 import 'package:itemtrackers/models/Joven.dart';
 import 'package:itemtrackers/rest/RDS_Publicacion.dart';
 import 'package:itemtrackers/rest/RDS_joven.dart';
@@ -23,6 +24,28 @@ class _PagState extends State<Pag> {
     RDS_joven rdsj = RDS_joven();
 
     futureJoven = rdsj.getJoven("Jane Doe");
+
+    RDS_Publicacion rdsp = RDS_Publicacion();
+
+    //ficha con id
+    late Future<FichaObjetoP> ficha = rdsp.getFichaObjetoP('1');
+    ficha.then((fichaObjeto) {
+      print('Attribute 1: ${fichaObjeto.ownerId}');
+      print('voltea es esto');
+    }).catchError((error) {
+      print('Error fetching FichaObjetoP: $error');
+    });
+    //todas las fichas
+    late Future<List<FichaObjetoP>> fichas = rdsp.getAll();
+    fichas.then((listOfFichas) {
+      for (var fichaObjeto in listOfFichas) {
+        print('Attribute 1: ${fichaObjeto.ubicacion}');
+        print('Attribute 2: ${fichaObjeto.ownerId}');
+        // Add more print statements for other attributes as needed
+      }
+    }).catchError((error) {
+      print('Error fetching FichaObjetoP: $error');
+    });
   }
 
   @override

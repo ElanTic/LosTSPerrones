@@ -20,35 +20,23 @@ class _PostsState extends State<Posts> {
     super.initState();
     RDS_Publicacion rdsp = RDS_Publicacion();
     futureFichaObjetoP = rdsp.getFichaObjetoP('1');
+    late Future<FichaObjetoP> ficha = rdsp.getFichaObjetoP('1');
+    //late Future<List<FichaObjetoP>> fichas = rdsp.getAll();
+
+    ficha.then((fichaObjeto) {
+      print('Attribute 1: ${fichaObjeto.ownerId}');
+      print('voltea es esto');
+    }).catchError((error) {
+      print('Error fetching FichaObjetoP: $error');
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Fetch Data Example',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Fetch Data Example'),
-        ),
-        body: Center(
-          child: FutureBuilder<FichaObjetoP>(
-            future: futureFichaObjetoP,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return Text(snapshot.data!.ownerId);
-              } else if (snapshot.hasError) {
-                return Text('${snapshot.error}');
-              }
-
-              // By default, show a loading spinner.
-              return const CircularProgressIndicator();
-            },
-          ),
-        ),
-      ),
-    );
+    return Scaffold(
+        appBar: AppBar(title: const Text("Formulario")),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        ));
   }
 }

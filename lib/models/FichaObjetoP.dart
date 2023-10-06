@@ -6,19 +6,19 @@ import 'dart:convert';
 
 class FichaObjetoP {
   int id;
-  DateTime? dateFound; // date_found
-  DateTime dateLost; // date_lost
+  //DateTime? dateFound; // date_found
+  //DateTime? dateLost; // date_lost
   String? ubicacion;
-  bool isFound; // is_found
+  //bool isFound; // is_found
   String ownerId; // owner_id
   int pertenenciaId; //pertenencia_id
 
   FichaObjetoP({
     required this.id,
-    this.dateFound,
-    required this.dateLost,
+    //this.dateFound,
+    //this.dateLost,
     this.ubicacion,
-    required this.isFound,
+    //required this.isFound,
     required this.ownerId,
     required this.pertenenciaId,
   });
@@ -26,12 +26,10 @@ class FichaObjetoP {
   factory FichaObjetoP.fromJson(Map<String, dynamic> json) {
     return FichaObjetoP(
       id: json['id'],
-      dateFound: json['date_found'] != null
-          ? DateTime.parse(json['date_found'])
-          : null,
-      dateLost: DateTime.parse(json['date_lost']),
+      //dateFound: DateTime.parse(json['date_found']),
+      //dateLost: DateTime.parse(json['date_lost']),
       ubicacion: json['ubicacion'],
-      isFound: json['is_found'],
+      //isFound: json['is_found'],
       ownerId: json['owner_id'],
       pertenenciaId: json['pertenencia_id'],
     );
@@ -40,10 +38,10 @@ class FichaObjetoP {
   Map<String, dynamic> toJson() {
     return {
       'id': id,
-      'date_found': dateFound?.toIso8601String(),
-      'date_lost': dateLost.toIso8601String(),
+      //'date_found': dateFound?.toIso8601String(),
+      //'date_lost': dateLost?.toIso8601String(),
       'ubicacion': ubicacion,
-      'is_found': isFound,
+      //'is_found': isFound,
       'owner_id': ownerId,
       'pertenencia_id': pertenenciaId,
     };

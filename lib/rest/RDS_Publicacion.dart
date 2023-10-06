@@ -13,10 +13,6 @@ class RDS_Publicacion {
       String url = ApiConfig.host + _ficha + '/' + id;
 
       final response = await http.get(Uri.parse(url));
-
-      print(response.body); // Print the response body for debugging
-      final jsonResponse = jsonDecode(response.body);
-      print(jsonResponse);
       if (response.statusCode == 200) {
         return FichaObjetoP.fromJson(jsonDecode(response.body));
       } else {
@@ -34,10 +30,6 @@ class RDS_Publicacion {
       String url = ApiConfig.host + _ficha;
 
       final response = await http.get(Uri.parse(url));
-
-      print(response.body); // Print the response body for debugging
-      final jsonResponse = jsonDecode(response.body);
-      print(jsonResponse);
       if (response.statusCode == 200) {
         List<dynamic> jsonResponse = jsonDecode(response.body);
         List<FichaObjetoP> fichas =
