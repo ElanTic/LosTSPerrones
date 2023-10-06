@@ -3,9 +3,54 @@ import 'dart:io';
 
 import 'package:itemtrackers/models/FichaObjetoP.dart';
 import 'package:http/http.dart' as http;
+import 'package:itemtrackers/rest/ApiConfig.dart';
 
-class RDS_ficha {
-  static const String host =
-      'https://08e5-2806-103e-13-c7b-8569-63bb-601f-4af1.ngrok-free.app';
-  static const String _ficha = '/fichas_objeto_p';
+class RDS_Publicacion {
+  static const String _ficha = 'fichas_objeto_p';
+
+  Future<FichaObjetoP> getFichaObjetoP(String id) async {
+    try {
+      String url = ApiConfig.host + _ficha + '/' + id;
+
+      final response = await http.get(Uri.parse(url));
+
+      print(response.body); // Print the response body for debugging
+      final jsonResponse = jsonDecode(response.body);
+      print(jsonResponse);
+      if (response.statusCode == 200) {
+        return FichaObjetoP.fromJson(jsonDecode(response.body));
+      } else {
+        print('Request failed with status: ${response.statusCode}');
+        throw Exception('Failed to load FichaObjetoP');
+      }
+    } catch (error) {
+      print('Error: $error');
+      throw error;
+    }
+  }
+
+  Future<List<FichaObjetoP>> getAll() async {
+    try {
+      String url = ApiConfig.host + _ficha;
+
+      final response = await http.get(Uri.parse(url));
+
+      print(response.body); // Print the response body for debugging
+      final jsonResponse = jsonDecode(response.body);
+      print(jsonResponse);
+      if (response.statusCode == 200) {
+        List<dynamic> jsonResponse = jsonDecode(response.body);
+        List<FichaObjetoP> fichas =
+            jsonResponse.map((data) => FichaObjetoP.fromJson(data)).toList();
+        return fichas;
+        //return FichaObjetoP.fromJson(jsonDecode(response.body));
+      } else {
+        print('Request failed with status: ${response.statusCode}');
+        throw Exception('Failed to load FichaObjetoP');
+      }
+    } catch (error) {
+      print('Error: $error');
+      throw error;
+    }
+  }
 }

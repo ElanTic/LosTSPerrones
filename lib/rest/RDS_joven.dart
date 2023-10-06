@@ -3,15 +3,14 @@ import 'dart:io';
 
 import 'package:itemtrackers/models/Joven.dart';
 import 'package:http/http.dart' as http;
+import 'package:itemtrackers/rest/ApiConfig.dart';
 
 class RDS_joven {
-  static const String host =
-      'https://08e5-2806-103e-13-c7b-8569-63bb-601f-4af1.ngrok-free.app';
-  static const String _joven = '/jovenes';
+  static const String _joven = 'jovenes';
 
   Future<Joven> getJoven(String name) async {
     try {
-      String url = host + _joven + '/' + name;
+      String url = ApiConfig.host + _joven + '/' + name;
       print(url);
 
       final response = await http.get(Uri.parse(url));
@@ -24,6 +23,27 @@ class RDS_joven {
       } else {
         print('Request failed with status: ${response.statusCode}');
         throw Exception('Failed to load Joven');
+      }
+    } catch (error) {
+      print('Error: $error');
+      throw error;
+    }
+  }
+
+  Future<List<Joven>> getAllJovenes() async {
+    try {
+      String url =
+          ApiConfig.host + _joven; // Assuming this URL retrieves all Jovenes
+      final response = await http.get(Uri.parse(url));
+
+      if (response.statusCode == 200) {
+        List<dynamic> jsonResponse = jsonDecode(response.body);
+        List<Joven> jovenes =
+            jsonResponse.map((data) => Joven.fromJson(data)).toList();
+        return jovenes;
+      } else {
+        print('Request failed with status: ${response.statusCode}');
+        throw Exception('Failed to load Jovenes');
       }
     } catch (error) {
       print('Error: $error');
