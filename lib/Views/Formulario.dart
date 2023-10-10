@@ -46,8 +46,7 @@ class _FormularioState extends State<Formulario> {
                 ),
                 MaterialButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Pag2()));
+                    Navigator.pop(context);
                   },
                   child: const Text('Guardar'),
                 )

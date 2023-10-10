@@ -4,8 +4,8 @@ import 'package:itemtrackers/Views/Formulario.dart';
 import 'package:itemtrackers/Views/Objetos.dart';
 import 'package:itemtrackers/models/FichaObjetoP.dart';
 import 'package:itemtrackers/models/Pertenencia.dart';
-import 'package:itemtrackers/rest/RDS_Publicacion.dart';
-import 'package:itemtrackers/rest/RDS_pertenencia.dart';
+import 'JovenView.dart';
+import 'Posts.dart';
 
 class Opciones extends StatefulWidget {
   const Opciones({Key? key}) : super(key: key);
@@ -15,40 +15,84 @@ class Opciones extends StatefulWidget {
 }
 
 class _OpcionesState extends State<Opciones> {
-  //late HomePageModel _model;
-  late Future<List<FichaObjetoP>> fichas;
-
-  @override
-  void initState() {
-    super.initState();
-
-    RDS_Publicacion rdsp = RDS_Publicacion();
-    fichas = rdsp.getAll();
-  }
-
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  @override
+
   Widget build(BuildContext context) {
-    return FutureBuilder<List<FichaObjetoP>>(
-      future: fichas,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return CircularProgressIndicator(); // Show loading indicator
-        } else if (snapshot.hasError) {
-          return Text('Error: ${snapshot.error}');
-        } else {
-          List<FichaObjetoP> pertenencias = snapshot.data!;
-          return ListView.builder(
-            itemCount: pertenencias.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(pertenencias[index].ownerId),
-                // Add more widgets to display other properties of Pertenencia
-              );
-            },
-          );
-        }
-      },
+    return Scaffold(
+      key: scaffoldKey,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text(
+          'Opciones',
+        ),
+        actions: [],
+        centerTitle: false,
+        elevation: 2,
+      ),
+      body: SafeArea(
+        top: true,
+        child: Align(
+          alignment: AlignmentDirectional(0.00, 0.00),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              FloatingActionButton.extended(
+                heroTag: "usr_detail",
+                label: Text('Mi Cuenta'),
+                backgroundColor: Colors.black,
+                icon: Icon(
+                  Icons.account_box,
+                  size: 60.0,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            JovenView()), // Assuming JovenView is the target page
+                  );
+                },
+              ),
+              FloatingActionButton.extended(
+                heroTag: "usr_stuff",
+                label: Text('Mis cosas'),
+                backgroundColor: Colors.black,
+                icon: Icon(
+                  Icons.archive,
+                  size: 60.0,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            Objetos()), // Assuming Objetos is the target page
+                  );
+                },
+              ),
+              FloatingActionButton.extended(
+                heroTag: "user_pub",
+                label: Text('Mis publicaciones'),
+                backgroundColor: Colors.black,
+                icon: Icon(
+                  Icons.description,
+                  size: 60.0,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            Posts()), // Assuming Posts is the target page
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

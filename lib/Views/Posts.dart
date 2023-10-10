@@ -41,8 +41,9 @@ class _PostsState extends State<Posts> {
           return ListView.builder(
             itemCount: pertenencias.length,
             itemBuilder: (context, index) {
+              final item = pertenencias[index];
               return ListTile(
-                title: Text(pertenencias[index].nombre),
+                title: Text(item.nombre),
                 // Add more widgets to display other properties of Pertenencia
               );
             },
