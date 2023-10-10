@@ -88,11 +88,19 @@ class _Pertenencia extends State<Pertenencia> {
                   Container(
                     height: 200,
                     decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.vertical(
-                            top: Radius.circular(16)),
-                        image: DecorationImage(
-                          image: NetworkImage(widget.foto),
-                        )),
+                      borderRadius:
+                          const BorderRadius.vertical(top: Radius.circular(16)),
+                    ),
+                    child: Image.network(
+                      widget.foto,
+                      errorBuilder: (BuildContext context, Object exception,
+                          StackTrace? stackTrace) {
+                        return Image.network(
+                          'https://http2.mlstatic.com/D_NQ_NP_684125-MLU70092217848_062023-O.webp', // Provide the URL to your default image here
+                          fit: BoxFit.cover,
+                        );
+                      },
+                    ),
                   ),
                   Container(
                     width: double.infinity,
